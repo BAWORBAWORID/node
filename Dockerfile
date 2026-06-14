@@ -47,7 +47,8 @@ RUN curl -sSL https://get.docker.com/ | CHANNEL=stable bash
 
 # Setup Wings daemon directories
 RUN mkdir -p /etc/pterodactyl && \
-    mkdir -p /var/lib/pterodactyl/volumes
+    mkdir -p /var/lib/pterodactyl/volumes && \
+    mkdir -p /var/log/pterodactyl
 
 # Download Wings
 RUN curl -L -o /usr/local/bin/wings "https://github.com/pterodactyl/wings/releases/latest/download/wings_linux_$(uname -m | sed 's/aarch64/arm64/;s/x86_64/amd64/')" && \
@@ -74,7 +75,7 @@ RUN echo "debug: false" > /etc/pterodactyl/config.yml && \
     echo "remote: 'http://store.alwayscodex.my.id'" >> /etc/pterodactyl/config.yml
 
 # chmod biar bisa di modif path / semuanya
-RUN chmod -R 777 /var/lib/pterodactyl/volumes /etc/pterodactyl /usr/local/bin/wings
+RUN chmod -R 777 /var/lib/pterodactyl/volumes /etc/pterodactyl /var/log/pterodactyl /usr/local/bin/wings
 
 WORKDIR /app
 
