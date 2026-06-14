@@ -78,11 +78,4 @@ RUN chmod -R 777 /var/lib/pterodactyl/volumes /etc/pterodactyl /usr/local/bin/wi
 
 WORKDIR /app
 
-# Enable docker at runtime using entrypoint script since systemctl is not available in docker build
-RUN echo '#!/bin/bash' > /start.sh && \
-    echo 'dockerd &> /var/log/dockerd.log &' >> /start.sh && \
-    echo 'sleep 5' >> /start.sh && \
-    echo 'wings' >> /start.sh && \
-    chmod +x /start.sh
-
-CMD ["/start.sh"]
+CMD ["wings"]
