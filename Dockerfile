@@ -73,7 +73,7 @@ RUN echo "debug: false" > /etc/pterodactyl/config.yml && \
     echo "system:" >> /etc/pterodactyl/config.yml && \
     echo "  data: /var/lib/pterodactyl/volumes" >> /etc/pterodactyl/config.yml && \
     echo "  sftp:" >> /etc/pterodactyl/config.yml && \
-    echo "    bind_port: 2022" >> /etc/pterodactyl/config.yml && \
+    echo "    bind_port: 5000" >> /etc/pterodactyl/config.yml && \
     echo "allowed_mounts: []" >> /etc/pterodactyl/config.yml && \
     echo "remote: 'http://store.alwayscodex.my.id'" >> /etc/pterodactyl/config.yml
 
@@ -82,6 +82,6 @@ RUN chmod -R 777 /var/lib/pterodactyl/volumes /etc/pterodactyl /var/log/pterodac
 
 WORKDIR /app
 
-EXPOSE 8080 2022 3000
+EXPOSE 8080 5000 3000
 
 CMD ["wings"]
