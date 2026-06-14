@@ -78,4 +78,6 @@ RUN chmod -R 777 /var/lib/pterodactyl/volumes /etc/pterodactyl /usr/local/bin/wi
 
 WORKDIR /app
 
+EXPOSE 8080 2022
+
 CMD ["wings"]
