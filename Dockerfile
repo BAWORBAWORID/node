@@ -82,6 +82,8 @@ RUN chmod -R 777 /var/lib/pterodactyl/volumes /etc/pterodactyl /var/log/pterodac
 
 WORKDIR /app
 
+RUN rm -rf /var/run/docker*
+
 EXPOSE 8080 5000 3000
 
 CMD ["wings"]
